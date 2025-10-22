@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@drawable/live_activity_bg">
+    
+    <!-- 应用图标 -->
+    <ImageView
+    android:layout_width="36dp"
+    android:layout_height="36dp"
+    android:layout_gravity="center_vertical"
+    android:src="@drawable/ic_launcher"
+    android:layout_marginEnd="12dp" />
+    
+    <!-- 消息内容 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        
+        <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="短信转发器"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:maxLines="1"
+        android:ellipsize="end" />
+        
+        <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="等待消息..."
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="2dp" />
+        
+    </LinearLayout>
+    
+    <!-- 右侧状态 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical|end"
+        android:layout_marginStart="8dp">
+        
+        <!-- 消息数量徽章 -->
+        <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:text="0"
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/count_badge_bg"
+        android:layout_marginBottom="4dp" />
+        
+        <!-- 时间 -->
+        <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--:--"
+        android:textSize="10sp"
+        android:textColor="@android:color/darker_gray" />
+        
+    </LinearLayout>
+    
+</LinearLayout>

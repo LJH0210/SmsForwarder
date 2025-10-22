@@ -79,6 +79,12 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 唤醒屏幕权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 在锁屏上显示 -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 
     <application
         android:name=".App"
@@ -231,6 +237,17 @@
             android:exported="true"
             android:value="640" />
 
+
+
+        <activity
+            android:name=".utils.sender.LockScreenActivity"
+            android:exported="false"
+            android:showOnLockScreen="true"
+            android:turnScreenOn="true"
+            android:showWhenLocked="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <service
             android:name=".service.BluetoothScanService"
             android:enabled="true"
@@ -255,6 +272,9 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+
+        <!-- 注册服务和Activity -->
+        <service android:name=".utils.sender.LiveActivityService" />
 
         <receiver
             android:name=".receiver.BatteryReceiver"

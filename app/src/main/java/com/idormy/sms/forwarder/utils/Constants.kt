@@ -147,11 +147,17 @@ const val TYPE_DINGTALK_INNER_ROBOT = 12
 const val TYPE_FEISHU_APP = 13
 const val TYPE_URL_SCHEME = 14
 const val TYPE_SOCKET = 15
+const val TYPE_LIVE = 10000
 
 //前台服务
 const val FRONT_NOTIFY_ID = 0x1010
 const val FRONT_CHANNEL_ID = "com.idormy.sms.forwarder"
 const val FRONT_CHANNEL_NAME = "SmsForwarder Foreground Service"
+
+//前台服务
+const val LIVE_NOTIFY_ID = 0x1011
+const val LIVE_CHANNEL_ID = "com.idormy.sms.forwarder.live"
+const val LIVE_CHANNEL_NAME = "IGG Forward"
 
 //Frp内网穿透
 const val FRPC_LIB_DOWNLOAD_URL = "https://xupdate.ppps.cn/uploads/%s/%s/libgojni.so"

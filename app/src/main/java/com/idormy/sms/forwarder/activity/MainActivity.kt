@@ -1,13 +1,18 @@
 package com.idormy.sms.forwarder.activity
 
+import android.Manifest
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.OneTimeWorkRequestBuilder
@@ -45,6 +50,8 @@ import com.idormy.sms.forwarder.utils.Log
 import com.idormy.sms.forwarder.utils.SettingUtils
 import com.idormy.sms.forwarder.utils.XToastUtils
 import com.idormy.sms.forwarder.utils.sdkinit.XUpdateInit
+import com.idormy.sms.forwarder.utils.sender.LiveActivityManager
+import com.idormy.sms.forwarder.utils.sender.LiveActivityService
 import com.idormy.sms.forwarder.widget.GuideTipsDialog.Companion.showTips
 import com.idormy.sms.forwarder.workers.LoadAppListWorker
 import com.jeremyliao.liveeventbus.LiveEventBus
@@ -59,6 +66,7 @@ import com.xuexiang.xui.utils.WidgetUtils
 import com.xuexiang.xui.widget.dialog.materialdialog.DialogAction
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog
+import com.xuexiang.xutil.XUtil
 import com.xuexiang.xutil.file.FileUtils
 import com.xuexiang.xutil.net.NetworkUtils
 import com.yarolegovich.slidingrootnav.SlideGravity
@@ -95,12 +103,14 @@ class MainActivity : BaseActivity<ActivityMainBinding?>(), DrawerAdapter.OnItemS
         return ActivityMainBinding.inflate(inflater!!)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         initData()
         initViews()
         initSlidingMenu(savedInstanceState)
+
 
         //不在最近任务列表中显示
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && SettingUtils.enableExcludeFromRecents) {
@@ -130,6 +140,10 @@ class MainActivity : BaseActivity<ActivityMainBinding?>(), DrawerAdapter.OnItemS
                     startService(serviceIntent)
                 }
             }
+
+            //
+            LiveActivityManager.startService(XUtil.getContext(), "", "");
+
         })
 
         //监听已安装App信息列表加载完成事件

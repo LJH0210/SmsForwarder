@@ -55,6 +55,7 @@ import com.idormy.sms.forwarder.utils.SharedPreference
 import com.idormy.sms.forwarder.utils.sdkinit.UMengInit
 import com.idormy.sms.forwarder.utils.sdkinit.XBasicLibInit
 import com.idormy.sms.forwarder.utils.sdkinit.XUpdateInit
+import com.idormy.sms.forwarder.utils.sender.LiveActivityService
 import com.idormy.sms.forwarder.utils.tinker.TinkerLoadLibrary
 import com.king.location.LocationClient
 import com.xuexiang.xutil.file.FileUtils

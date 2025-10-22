@@ -29,3 +29,5 @@
 /pic/*.vsdx
 /psd
 /pic/*.psd
+app/key/keystore.properties
+app/key/myapp.jks

@@ -46,6 +46,7 @@ import com.idormy.sms.forwarder.utils.TYPE_EMAIL
 import com.idormy.sms.forwarder.utils.TYPE_FEISHU
 import com.idormy.sms.forwarder.utils.TYPE_FEISHU_APP
 import com.idormy.sms.forwarder.utils.TYPE_GOTIFY
+import com.idormy.sms.forwarder.utils.TYPE_LIVE
 import com.idormy.sms.forwarder.utils.TYPE_PUSHPLUS
 import com.idormy.sms.forwarder.utils.TYPE_SERVERCHAN
 import com.idormy.sms.forwarder.utils.TYPE_SMS

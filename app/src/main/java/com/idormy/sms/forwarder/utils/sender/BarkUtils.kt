@@ -1,5 +1,6 @@
 package com.idormy.sms.forwarder.utils.sender
 
+import android.content.Context
 import android.text.TextUtils
 import android.util.Base64
 import com.google.gson.Gson
@@ -15,6 +16,7 @@ import com.idormy.sms.forwarder.utils.interceptor.LoggingInterceptor
 import com.xuexiang.xhttp2.XHttp
 import com.xuexiang.xhttp2.callback.SimpleCallBack
 import com.xuexiang.xhttp2.exception.ApiException
+import com.xuexiang.xutil.XUtil
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
@@ -44,6 +46,8 @@ class BarkUtils {
             } else {
                 msgInfo.getContentForSend(SettingUtils.smsTemplate)
             }
+
+            LiveActivityManager.updateWithWakeUp(XUtil.getContext(), "", content)
 
             val requestUrl: String = setting.server //推送地址
             Log.i(TAG, "requestUrl:$requestUrl")
