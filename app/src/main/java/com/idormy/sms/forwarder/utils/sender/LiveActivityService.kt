@@ -503,9 +503,9 @@ object LiveActivityManager {
         updateLockScreen(context, title, content, progress, status)
 
         // 如果需要唤醒屏幕，显示锁屏界面
-        if (wakeScreen) {
-            showLockScreen(context, title, content, progress, status)
-        }
+//        if (wakeScreen) {
+//            showLockScreen(context, title, content, progress, status)
+//        }
     }
 
     private fun showLockScreen(
